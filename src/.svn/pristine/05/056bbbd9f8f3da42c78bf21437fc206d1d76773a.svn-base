@@ -1,0 +1,16 @@
+package louvre.fiches;
+
+
+import java.util.Vector;
+
+public class Photographe extends Utilisateur {
+	public Vector<Demande> listeDemandesPrisesEnCharge = new Vector<Demande>();
+
+	public void prendreEnCharge(Demande aDemande) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void addDemande(Demande aDemande) {
+		throw new UnsupportedOperationException();
+	}
+}

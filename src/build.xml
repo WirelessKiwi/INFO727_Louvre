@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="build">
+	<path id="build.classpath">
+		<pathelement location="classes"/>
+	</path>
+	<target name="init">
+		<mkdir dir="classes"/>
+	</target>
+	<target name="clean">
+		<delete dir="classes"/>
+	</target>
+	<target depends="init" name="build">
+		<javac srcdir="." destdir="classes" source="1.5" target="1.5" fork="yes">
+			<classpath refid="build.classpath"/>
+			<include name="DC_fiches/Photo.java"/>
+			<include name="DC_fiches/Auteur.java"/>
+			<include name="DC_fiches/Oeuvre.java"/>
+			<include name="DC_fiches/Département.java"/>
+			<include name="DC_fiches/System.java"/>
+		</javac>
+	</target>
+</project>

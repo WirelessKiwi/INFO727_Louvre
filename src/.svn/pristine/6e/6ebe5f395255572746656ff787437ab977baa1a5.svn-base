@@ -1,0 +1,133 @@
+package louvre.fiches;
+
+import java.util.Vector;
+
+public class Systeme {
+	
+	// la liste des départements (utilisée pour une recherche par département plus rapide et plus simple)
+	private Vector<Departement> _listeDeps = new Vector<Departement>();
+	// la liste des oeures du musée
+	private Vector<Oeuvre> _listeOeuvres = new Vector<Oeuvre>();
+	// la liste des auteurs (utilisée pour une recherche par auteur plus rapide et plus simple)
+	private Vector<Auteur> _listeAuteurs = new Vector<Auteur>();
+	
+	public Systeme (){
+		Departement sg = new Departement("Sculptures grecques");
+		Departement peinture = new Departement("Peinture");
+		Auteur leonardDV = new Auteur("Leonard", "De Vinci");
+		Auteur michelAnge = new Auteur("Michel", "Ange");
+		Vector<Auteur> vect = new Vector<Auteur>();
+		vect.add(leonardDV);
+		Oeuvre joconde = new Oeuvre("Joconde", "1510-1515", "Lorem Ipsum Dolores ...", peinture, vect);
+		vect.removeAllElements();
+		vect.add(michelAnge);
+		Oeuvre esclave = new Oeuvre ("Esclave mourant", "1513-1516", "Lorem ipsum dolores sit ...", peinture, vect);
+		_listeDeps.add(sg);
+		_listeDeps.add(peinture);
+	}
+	
+	/**
+	 * Recherche toutes les oeuvres dont le nom contient "nomOeuvre"
+	 * Affiche la liste des résultats (appelle afficherRecherche)
+	 * @param nomOeuvre : nom de l'oeuvre à rechercher
+	 */
+	public void rechercheParNom(String nomOeuvre)
+	{		
+		// stocke les résultats de la recherche
+		Vector<Oeuvre> resultats = new Vector<Oeuvre>();
+		int nbOeuvres = _listeOeuvres.size();
+		
+		if(!nomOeuvre.isEmpty())
+		{
+			for(int i = 0; i < nbOeuvres; i++)
+			{
+				if(_listeOeuvres.get(i).getNom().contains(nomOeuvre))
+				{
+					resultats.add(_listeOeuvres.get(i));
+				}
+			}
+		}
+		
+		afficherRecherche(resultats);
+	}
+	
+	/**
+	 * Recherche toutes les oeuvres dont l'auteur a pour nom "nomAuteur"
+	 * et pour prenom "prenomAuteur"
+	 * Affiche la liste des résultats (appelle afficherRecherche)
+	 * @param nomAuteur : nom de l'auteur
+	 * @param prenomAuteur : prenom de l'auteur
+	 */
+	public void rechercheParAuteur(String nomAuteur, String prenomAuteur)
+	{
+		// stocke les résultats de la recherche
+		Vector<Oeuvre> resultats = new Vector<Oeuvre>();
+		int nbAuteurs = _listeAuteurs.size();
+		Auteur curAuteur;
+		
+		for(int i = 0; i < nbAuteurs; i++)
+		{
+			curAuteur = _listeAuteurs.get(i);
+			
+			if(	curAuteur.getNom().contains(nomAuteur) 
+				&& curAuteur.getPrenom().contains(prenomAuteur))
+			{
+				resultats.addAll(curAuteur.getListeOeuvres());
+			}
+		}
+		
+		afficherRecherche(resultats);
+	}
+	
+	/**
+	 * Recherche toutes les oeuvres associées à un département
+	 * Affiche la liste des résultats (appelle afficherRecherche)
+	 * @param departement
+	 */
+	public void rechercheParDepartement(String departement)
+	{
+		// stocke les résultats de la recherche
+		Vector<Oeuvre> resultats = new Vector<Oeuvre>();
+		int nbDep = _listeDeps.size();
+		Departement curDep;
+		
+		for(int i = 0; i < nbDep; i++)
+		{
+			curDep = _listeDeps.get(i);
+			
+			if(	curDep.getNom().contains(departement))
+			{
+				resultats.addAll(curDep.getListeOeuvres());
+			}
+		}
+		
+		afficherRecherche(resultats);
+	}
+	
+	/**
+	 * Affiche la liste des résultats d'une recherche
+	 * @param resultats : liste des oeuvres à afficher
+	 */
+	private void afficherRecherche(Vector<Oeuvre> resultats)
+	{
+		if(resultats.size() > 0)
+		{
+			for(int i = 0; i < resultats.size(); i++){
+				System.out.println(resultats.get(i).getNom());
+			}
+		}
+		else
+		{
+			System.out.println("Aucun résultat");
+		}
+	}
+	
+	public void afficherFiche(int i){
+		System.out.println(_listeOeuvres.get(i).afficherFiche());
+	}
+	
+	public static void main(String[] arg)
+	{
+		//System.out.println("abcd".contains(""));
+	}
+}

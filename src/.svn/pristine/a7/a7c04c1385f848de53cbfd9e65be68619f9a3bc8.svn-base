@@ -1,0 +1,50 @@
+package louvre.fiches;
+
+
+import java.util.Vector;
+
+import louvre.demandes.Oeuvre;
+
+public class Systeme {
+	
+	
+	private Utilisateur curUser;
+	public Vector<Demande> listeDemandes = new Vector<Demande>();
+	public Vector<Utilisateur> listeUtilisateurs = new Vector<Utilisateur>();
+
+	public void afficherPageCreation() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void creerDemande(String aNom, String aDescription, Oeuvre aOeuvre) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void afficherPageDemandes(EtatDemande aEtat) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void afficherDemandes() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void prendreEnCharge(Demande aDemande) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void connexion(String aLogin, String aPassword) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void consulterMesDemandes() {
+		throw new UnsupportedOperationException();
+	}
+
+	public void setCurUser(Utilisateur aCurUser) {
+		this.curUser = aCurUser;
+	}
+
+	public Utilisateur getCurUser() {
+		return this.curUser;
+	}
+}

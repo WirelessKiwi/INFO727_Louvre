@@ -1,0 +1,12 @@
+package louvre.fiches;
+
+
+import java.util.Vector;
+
+public class Historien extends Utilisateur {
+	public Vector<Demande> listeDemandes = new Vector<Demande>();
+
+	public Demande[] getDemandes() {
+		throw new UnsupportedOperationException();
+	}
+}

@@ -1,0 +1,6 @@
+package louvre.fiches;
+
+
+public enum EtatDemande {
+	EN_ATTENTE, PRISE_EN_CHARGE, TERMINEE;
+}

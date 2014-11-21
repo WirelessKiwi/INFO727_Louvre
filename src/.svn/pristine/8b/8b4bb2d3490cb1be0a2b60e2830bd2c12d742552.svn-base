@@ -1,0 +1,55 @@
+package louvre.demandes;
+
+import java.util.Vector;
+
+import louvre.fiches.Oeuvre;
+
+/**
+ * 
+ * @author Turbopastek
+ *
+ */
+public class Historien extends Utilisateur {
+
+	private Vector<Demande> listeDemandes = new Vector<Demande>();
+	
+	public Historien(String login, String mdp) {
+		super(login, mdp);
+	}
+	
+	/**
+	 * Crée une nouvelle demande et ajoute cette demande
+	 * à la liste de demandes du systeme
+	 * 
+	 * @param nom : nom de la demande
+	 * @param description : description de la demande
+	 * @param oeuvre : oeuvre liée à la demande
+	 */
+	public void creerDemande(String nom, String description, Oeuvre oeuvre, Systeme sys) {
+			Demande demande = new Demande(nom, description, oeuvre, this);
+			addDemande(demande);
+			sys.addDemande(demande);
+	}
+	
+	/**
+	 * Ajoute une demande à la liste des demandes crées
+	 * par l'historien
+	 * 
+	 * @param demande : demande à ajouter
+	 */
+	private void addDemande(Demande demande) {
+		listeDemandes.add(demande);
+	}
+	
+	/**
+	 * Override Utilisateur.isHistorien()
+	 */
+	public boolean isHistorien() {
+		return true;
+	}
+
+	@SuppressWarnings("unchecked")
+	public Vector<Demande> getDemandes() {
+		return (Vector<Demande>) listeDemandes.clone();
+	}
+}

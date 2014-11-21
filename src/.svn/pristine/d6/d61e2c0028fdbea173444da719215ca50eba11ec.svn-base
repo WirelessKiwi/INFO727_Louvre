@@ -1,0 +1,37 @@
+package louvre.demandes;
+import java.util.Vector;
+
+public class Auteur {
+	private String _nom;
+	private String _prenom;
+	private Vector<Oeuvre> _listeOeuvres = new Vector<Oeuvre>();
+	
+	public Auteur (String nom, String prenom){
+		this._nom = nom;
+		this._prenom = prenom;
+	}
+
+	public void setNom(String aNom) {
+		this._nom = aNom;
+	}
+
+	public String getNom() {
+		return this._nom;
+	}
+
+	public void setPrenom(String aPrenom) {
+		this._prenom = aPrenom;
+	}
+
+	public String getPrenom() {
+		return this._prenom;
+	}
+
+	public Vector<Oeuvre> getListeOeuvres() {
+		return _listeOeuvres;
+	}
+
+	public void setListeOeuvres(Vector<Oeuvre> _listeOeuvres) {
+		this._listeOeuvres = _listeOeuvres;
+	}
+}

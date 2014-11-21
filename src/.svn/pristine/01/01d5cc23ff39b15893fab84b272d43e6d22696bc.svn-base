@@ -1,0 +1,27 @@
+package louvre.demandes;
+
+
+public class Utilisateur {
+	private String identifiant;
+	private String motDePasse;
+
+	public boolean connexion(String aLogin, String aPassword) {
+		throw new UnsupportedOperationException();
+	}
+
+	public void setIdentifiant(String aIdentifiant) {
+		this.identifiant = aIdentifiant;
+	}
+
+	public String getIdentifiant() {
+		return this.identifiant;
+	}
+
+	public void setMotDePasse(String aMotDePasse) {
+		this.motDePasse = aMotDePasse;
+	}
+
+	public String getMotDePasse() {
+		return this.motDePasse;
+	}
+}

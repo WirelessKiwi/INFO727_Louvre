@@ -1,0 +1,42 @@
+package louvre.demandes;
+import louvre.fiches.Oeuvre;
+
+
+public class Demande {
+	private EtatDemande etat;
+	private String description;
+	public Historien createur;
+	public Photographe priseEnChargePar;
+	public Oeuvre oeuvre;
+
+	public void getDemande(EtatDemande aEtat) {
+	}
+
+	public Demande(String aNom, String aDescription, Oeuvre aOeuvre) {
+	}
+
+	public void estEtat(EtatDemande aEtat) {
+	}
+
+	public void setEtat() {
+	}
+
+	public void setPhotographe(Photographe aPhotographe) {
+	}
+
+	public void setEtat(EtatDemande aEtat) {
+		this.etat = aEtat;
+	}
+
+	public EtatDemande getEtat() {
+		return this.etat;
+	}
+
+	public void setDescription(String aDescription) {
+		this.description = aDescription;
+	}
+
+	public String getDescription() {
+		return this.description;
+	}
+}
