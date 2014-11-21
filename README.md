@@ -1,4 +1,4 @@
 INFO727_Louvre
 ==============
 
-A scholar project
+A project for school
